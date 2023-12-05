@@ -1,27 +1,42 @@
-@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer tailwind {
+  @tailwind base;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@import '@mantine/core/styles.css';
 
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  @apply h-full w-full;
+  font-size: 22px;
+}
+
+.full-size {
+  @apply h-full w-full;
+}
+
+.content-size {
+  @apply w-full max-w-screen-lg px-4;
+}
+
+.center-row {
+  @apply flex items-center;
+}
+
+.center-col {
+  @apply flex flex-col items-center;
+}
+
+.center-content {
+  @apply flex flex-col items-center justify-center;
+}
+
+.page-title {
+  @apply text-4xl font-light tracking-wide;
+}
+
+a {
+  @apply cursor-pointer text-slate-300 underline hover:text-slate-400;
 }
