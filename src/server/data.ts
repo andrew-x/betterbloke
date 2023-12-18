@@ -7,9 +7,12 @@ function extract(id: string, patter: RegExp) {
 }
 
 export async function getData() {
-  const res = await fetch(`https://huggingface.co/api/models?author=TheBloke`, {
-    method: 'GET',
-  })
+  const res = await fetch(
+    `https://huggingface.co/api/models?author=TheBloke&sort=createdAt&direction=-1`,
+    {
+      method: 'GET',
+    }
+  )
   const data = await res.json()
 
   const flat: Model[] = Array.from(data)
